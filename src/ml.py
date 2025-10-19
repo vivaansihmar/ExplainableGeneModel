@@ -53,3 +53,15 @@ plt.title("confusion matrix - Logistic Regression")
 plt.ylabel('Actual')
 plt.xlabel('Predicted')
 plt.show()
+joblib.dump(log_reg, os.path.join("output", "logistic_regression_model.joblib"))
+rf_clf = RandomForestClassifier(
+    n_estimators=100,
+    max_depth=None,
+    min_samples_split=2,
+    min_samples_leaf=1,
+    n_jobs=-1,
+    random_state=42
+)
+rf_clf.fit(X_train, y_train)
+y_pred_rf = rf_clf.predict(X_test)
+acc_rf = accuracy_score(y_test,y_pred_rf)
