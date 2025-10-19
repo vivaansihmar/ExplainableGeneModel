@@ -1,0 +1,9 @@
+Data/*.csv
+Data/*.zip
+tf_env/
+__pycache__/
+.ipynb_checkpoints/
+output/
+venv/
+.env/
+.vscode/
