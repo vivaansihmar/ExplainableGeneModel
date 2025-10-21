@@ -13,12 +13,5 @@ import tensorflow as tf
 from tensorflow import keras
 from tensorflow.keras import layers
 import os, random
-RANDOM_SEED = 42
-np.random.seed(RANDOM_SEED)
-tf.random.set_seed(RANDOM_SEED)
-random.seed(RANDOM_SEED)
 
-df = pd.read_csv("Data\METABRIC_RNA_Mutation.csv")
-print(df.shape)
-print(df.columns[:50])
-df.head()
+
