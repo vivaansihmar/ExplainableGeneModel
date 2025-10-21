@@ -40,7 +40,7 @@ os.makedirs("output/plots", exist_ok=True)
 
 #shap logrg
 lr_start = time.time()
-print("\n SHAP Analysis for Logistic Regression... (this might take a few minutes)")
+print("\n SHAP Analysis for Logistic Regression...")
 
 
 masker = shap.maskers.Independent(X)
