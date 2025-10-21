@@ -30,7 +30,10 @@ rf_clf = joblib.load("output/random_forest_model.joblib")
 print("\n🧠 SHAP Analysis for Logistic Regression...")
 
 
-explainer_lr = shap.LinearExplainer(log_reg, X, feature_dependence="independent")
+masker = shap.maskers.Independent(X)  
+explainer_lr = shap.LinearExplainer(log_reg, masker=masker)
+shap_values_lr = explainer_lr(X)
+
 shap_values_lr = explainer_lr.shap_values(X)
 
 #summ plot
