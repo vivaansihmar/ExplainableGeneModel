@@ -28,7 +28,7 @@ X[X.select_dtypes(include='number').columns] = scaler.fit_transform(X.select_dty
 X = X.apply(pd.to_numeric, errors='coerce')
 X = X.fillna(X.median())
 
-print(f"✅ Missing values after cleanup: {X.isnull().sum().sum()}")
+print(f" Missing values after cleanup: {X.isnull().sum().sum()}")
 
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.2, stratify=y, random_state=42
@@ -48,7 +48,7 @@ y_pred_lr = log_reg.predict(X_test)
 acc_lr = accuracy_score(y_test, y_pred_lr)
 f1_lr = f1_score(y_test, y_pred_lr, average='weighted')
 
-print("\n🧠 Logistic Regression Results:")
+print("\n Logistic Regression Results:")
 print(f"Accuracy: {acc_lr:.3f}, F1-Score: {f1_lr:.3f}")
 print(classification_report(y_test, y_pred_lr, target_names=class_names))
 
@@ -63,7 +63,7 @@ plt.xlabel('Predicted')
 plt.show()
 
 joblib.dump(log_reg, os.path.join("output", "logistic_regression_model.joblib"))
-print("✅ Logistic Regression model saved.")
+print("Logistic Regression model saved.")
 
 rf_clf = RandomForestClassifier(
     n_estimators=200,
@@ -94,4 +94,4 @@ plt.xlabel('Predicted')
 plt.show()
 
 joblib.dump(rf_clf, os.path.join("output", "random_forest_model.joblib"))
-print("✅ Random Forest model saved.")
+print("Random Forest model saved.")
