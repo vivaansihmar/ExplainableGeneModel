@@ -79,7 +79,7 @@ y_pred_rf = rf_clf.predict(X_test)
 acc_rf = accuracy_score(y_test, y_pred_rf)
 f1_rf = f1_score(y_test, y_pred_rf, average='weighted')
 
-print("\n🌳 Random Forest Results:")
+print("\n Random Forest Results:")
 print(f"Accuracy: {acc_rf:.3f}, F1-Score: {f1_rf:.3f}")
 print(classification_report(y_test, y_pred_rf, target_names=class_names))
 
