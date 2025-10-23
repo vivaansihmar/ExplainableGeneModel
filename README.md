@@ -1,11 +1,12 @@
-<i>Hi, this project is for my research study - "Explainable Gene Importance Modeling in Breast Cancer Subtypes Using Logistic Regression and Attention-Based Deep Learning".</i> 
+Hi, this project is for my research study - <i>"Explainable Gene Importance Modeling in Breast Cancer Subtypes Using Logistic Regression and Attention-Based Deep Learning".</i> 
 -
 This project INcludes two Machine learning models and Two Deep learning models .<br></br>
+<table
 |               ML                  |                DL                   |
 | __________________________________|____________________________________|
 | Logistic Regression               | Fully Connected Neural Network      |
-| Random Forest / Gradient Boosting | Attention-Based Deep Learning Model |
-
+| Random Forest-Gradient Boosting   | Attention-Based Deep Learning Model |
+>
 Key points :-<br></br>
 -ML models for baseline prediction<br></br>
 -DL models for advanced prediction and gene importance<br></br>
