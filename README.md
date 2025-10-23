@@ -1,4 +1,4 @@
-Hi, this project is for my research study - "Explainable Gene Importance Modeling in Breast Cancer Subtypes Using Logistic Regression and Attention-Based Deep Learning".
+<i>Hi, this project is for my research study - "Explainable Gene Importance Modeling in Breast Cancer Subtypes Using Logistic Regression and Attention-Based Deep Learning".</i> 
 -
 This project INcludes two Machine learning models and Two Deep learning models .<br></br>
 |               ML                  |                DL                   |
