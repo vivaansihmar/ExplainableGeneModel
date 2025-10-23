@@ -27,7 +27,6 @@ X = X.apply(pd.to_numeric, errors='coerce').fillna(X.median())
 print(f"Data ready for SHAP analysis. Shape: {X.shape}")
 print(f"Data preprocessing took: {time.time() - start_time:.2f} seconds")
 
-# Load models
 log_reg = joblib.load("output/models/logistic_regression_model.joblib")
 rf_clf = joblib.load("output/models/random_forest_model.joblib")
 
@@ -37,17 +36,14 @@ os.makedirs("output/tables", exist_ok=True)
 def get_shap_array(shap_values):
     """Convert SHAP outputs into 2D array (samples × features)"""
     if isinstance(shap_values, list):
-        # For multi-class TreeExplainer outputs
         shap_values = np.mean([np.abs(sv) for sv in shap_values], axis=0)
     elif hasattr(shap_values, "values"):
         shap_values = shap_values.values
     shap_values = np.array(shap_values)
     if shap_values.ndim > 2:
-        # Average over classes for multi-class models
         shap_values = np.mean(np.abs(shap_values), axis=2)
     return shap_values
 
-# Logistic Regression SHAP
 lr_start = time.time()
 masker = shap.maskers.Independent(X)
 explainer_lr = shap.LinearExplainer(log_reg, masker=masker)
@@ -56,13 +52,11 @@ shap_values_lr_plot = get_shap_array(shap_values_lr)
 
 print(f"Logistic Regression SHAP shape (samples x features): {shap_values_lr_plot.shape}")
 
-# Plot summary bar
 shap.summary_plot(shap_values_lr_plot, X, plot_type="bar", show=False)
 plt.tight_layout()
 plt.savefig("output/plots/shap_summary_log_reg.png", bbox_inches='tight')
 plt.close()
 
-# Save top features
 feature_importance_lr = pd.DataFrame({
     "Feature": X.columns,
     "Mean_Abs_SHAP": np.mean(shap_values_lr_plot, axis=0)
@@ -70,19 +64,16 @@ feature_importance_lr = pd.DataFrame({
 feature_importance_lr.to_csv("output/tables/top_features_log_reg.csv", index=False)
 print(f"Logistic Regression SHAP done in {time.time() - lr_start:.2f} seconds")
 
-# Random Forest SHAP
 rf_start = time.time()
 explainer_rf = shap.TreeExplainer(rf_clf)
 shap_values_rf = explainer_rf.shap_values(X)
 shap_values_rf_plot = get_shap_array(shap_values_rf)
 
-# Plot summary bar
 shap.summary_plot(shap_values_rf_plot, X, plot_type="bar", show=False)
 plt.tight_layout()
 plt.savefig("output/plots/shap_summary_rf.png", bbox_inches='tight')
 plt.close()
 
-# Save top features
 feature_importance_rf = pd.DataFrame({
     "Feature": X.columns,
     "Mean_Abs_SHAP": np.mean(shap_values_rf_plot, axis=0)
