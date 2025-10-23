@@ -2,7 +2,7 @@ Hi, this project is for my research study - "Explainable Gene Importance Modelin
 -
 This project INcludes two Machine learning models and Two Deep learning models .<br></br>
 |               ML                  |                DL                   |
-| __________________________________|_____________________________________|
+| __________________________________|____________________________________|
 | Logistic Regression               | Fully Connected Neural Network      |
 | Random Forest / Gradient Boosting | Attention-Based Deep Learning Model |
 
