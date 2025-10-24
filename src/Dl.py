@@ -17,7 +17,7 @@ from tensorflow import keras
 import os, random
 import time
 
-start_timme = time.time()
+start_time = time.time()
 
 DATA_PATH = "Data/METABRIC_RNA_Mutation.csv"
 MODEL_OUT = "output/models/attention_model.keras"
@@ -46,6 +46,7 @@ X_train, X_test, y_train, y_train = train_test_split(
     random_state = 42
 )
 print(f"Train_shape: {X_train.shape}, Test_shape: {X_test.shape}")
+print(f"data processing took: {time.time() -start_time:.2f} seconds")
 
 class AttentionLayer(layers):
     def _init_(self):
@@ -61,4 +62,6 @@ class AttentionLayer(layers):
                 attention_scores = tf.nn.softmax(tf.matmul(inputs, self.attention_weights), axis=1)
                 attended_output = inputs * attention_scores
                 return attended_output
+print(AttentionLayer().summary())
+
 
