@@ -32,3 +32,33 @@ TARGET_COL = 'pam50_+_claudin-low_subtype'
 
 X =data.dropna(columns=[TARGET_COL])
 y = data[TARGET_COL]
+
+lable_Encoder  = LabelEncoder()
+y_encoded =lable_Encoder.fit_transform(y)
+num_classes = len(np.unique(y_encoded))
+y_onehot = keras.utlis.to_categorical(y_encoded, num_classes=num_classes)
+
+scaler = StandardScaler()
+X_scaled = scaler.fit_transform(X)
+
+X_train, X_test, y_train, y_train = train_test_split(
+    X_scaled, y_onehot, train_size=0.8, test_size=0.2, stratify=y_onehot, 
+    random_state = 42
+)
+print(f"Train_shape: {X_train.shape}, Test_shape: {X_test.shape}")
+
+class AttentionLayer(layers):
+    def _init_(self):
+        super(AttentionLayer, self)._init_()
+        def build(self, input_shape):
+            self.attention_weights = self.add_weight(
+                shape = (input_shape[-1],1),
+                initializer = "random_normal",
+                trainable = True,
+                name = "AttentionLayer_weights"
+                )
+            def call(self, inputs):
+                attention_scores = tf.nn.softmax(tf.matmul(inputs, self.attention_weights), axis=1)
+                attended_output = inputs * attention_scores
+                return attended_output
+
