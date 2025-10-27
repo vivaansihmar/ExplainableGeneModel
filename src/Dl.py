@@ -15,7 +15,6 @@ import pandas as pd
 import numpy as np
 import os, time
 
-
 start_time = time.time()
 
 DATA_PATH = "Data/METABRIC_RNA_Mutation.csv"
@@ -41,8 +40,6 @@ X_encoded = X.copy()
 for col in categorical_cols:
     encoder = LabelEncoder()
     X_encoded[col] = encoder.fit_transform(X[col].astype(str))
-
-
 
 lable_Encoder  = LabelEncoder()
 y_encoded =lable_Encoder.fit_transform(y)
