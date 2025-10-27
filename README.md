@@ -48,3 +48,9 @@ Below are graphs and confusion matrix images of the ML models:<br></br>
 <img width="1002" height="700" alt="graph 2" src="https://github.com/user-attachments/assets/abcd4a92-9ad5-47fc-bb1b-cd5f27dbe575" />
 <img width="501" height="306" alt="image" src="https://github.com/user-attachments/assets/bca93e4a-e884-46be-a48d-99db01a70ecf" />        
 <img width="464" height="232" alt="image" src="https://github.com/user-attachments/assets/971220d1-e2ea-4e99-ba6a-c910288ae90b" />
+
+<i>Deep learning :</i>
+-
+<img width="1000" height="500" alt="training_accuracy" src="https://github.com/user-attachments/assets/af6c55c1-7dcf-4bfc-8ed5-e650fc4dc2b8" />
+
+<img width="1000" height="500" alt="training_accuracy" src="https://github.com/user-attachments/assets/82e652d9-f062-49b8-9bb2-e8c9b5078cd1" />
