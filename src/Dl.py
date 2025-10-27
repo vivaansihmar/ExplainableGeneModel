@@ -109,7 +109,7 @@ print("Model compiled  time taken: {:.2f} seconds".format(time.time() - start_ti
 early_stop = EarlyStopping(monitor='val_loss', patience=10, restore_best_weights= True)
 history =model.fit(
     X_train, y_train,
-    validation_split=0.2,
+    validation_data=(X_test,y_test),
     epochs=100,
     batch_size=32,
     callbacks=[early_stop],
@@ -122,8 +122,15 @@ print(f"\nTest accuracy: {accuracy:.4f}, Test F1: {f1:.4f}")
 y_pred_probs = model.predict(X_test)
 y_pred = np.argmax(y_pred_probs, axis=1)
 y_true = np.argmax(y_test, axis=1)
+unique_labels = sorted(np.unique(y_true))
+target_names = [lable_Encoder.classes_[i] for i in unique_labels]
 print("\nClassification Report:")
-print(classification_report(y_true, y_pred, target_names=lable_Encoder.classes_))
+print(classification_report(
+    y_true, y_pred, 
+    labels=unique_labels,
+    target_names=target_names,
+    zero_division=0
+))
 
 cm = confusion_matrix(y_true, y_pred)
 plt.figure(figsize=(10,8))
