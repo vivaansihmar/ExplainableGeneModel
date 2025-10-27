@@ -63,5 +63,5 @@ class AttentionLayer(layers):
                 attended_output = inputs * attention_scores
                 return attended_output
 print(AttentionLayer().summary())
-
-
+def build_model(input_shape, num_classes ):
+    inputs = Input(shape=(input_shape,))
