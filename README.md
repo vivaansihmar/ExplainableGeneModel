@@ -42,7 +42,7 @@ python src/shap_analysis.py
 
 Below are graphs and confusion matrix images:<br></br>
 
-<i>ML models:</i>
+<i>Machine learning :</i>
 -
 <img width="695" height="522" alt="image" src="https://github.com/user-attachments/assets/f958ec8e-43ef-4186-ae3c-a3938f3e6df8" />
 <img width="1123" height="897" alt="image" src="https://github.com/user-attachments/assets/e60b928d-cd0e-45bd-88ab-8e1d4ba0523b" />
@@ -55,4 +55,4 @@ Below are graphs and confusion matrix images:<br></br>
 -
 <img width="1000" height="500" alt="training_accuracy" src="https://github.com/user-attachments/assets/af6c55c1-7dcf-4bfc-8ed5-e650fc4dc2b8" />
 
-<img width="1000" height="500" alt="training_accuracy" src="https://github.com/user-attachments/assets/82e652d9-f062-49b8-9bb2-e8c9b5078cd1" />
+<img width="1000" height="500" alt="training_loss" src="https://github.com/user-attachments/assets/8dbf9770-6203-4962-a15c-3dd330657d1c" />
