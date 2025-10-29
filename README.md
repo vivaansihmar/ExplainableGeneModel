@@ -51,7 +51,7 @@ Below are graphs and confusion matrix images:<br></br>
 <img width="501" height="306" alt="image" src="https://github.com/user-attachments/assets/bca93e4a-e884-46be-a48d-99db01a70ecf" />        
 <img width="464" height="232" alt="image" src="https://github.com/user-attachments/assets/971220d1-e2ea-4e99-ba6a-c910288ae90b" />
 
-<i>Deep learning :</i>
+<i>Deep learning:</i>
 -
 <img width="1000" height="500" alt="training_accuracy" src="https://github.com/user-attachments/assets/af6c55c1-7dcf-4bfc-8ed5-e650fc4dc2b8" />
 
